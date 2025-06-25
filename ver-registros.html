@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registros de Visitantes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light p-4">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="text-primary">Registros de Visitantes</h2>
+      <a href="index.html" class="btn btn-outline-secondary">← Volver al formulario</a>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped" id="tabla">
+        <thead class="table-dark"></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    fetch('https://TUBACKEND.render.com/get-registros.php')
+      .then(response => response.json())
+      .then(data => {
+        const thead = document.querySelector("thead");
+        const tbody = document.querySelector("tbody");
+
+        if (data.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="100%" class="text-center">No hay registros</td></tr>';
+          return;
+        }
+
+        const headers = Object.keys(data[0]);
+        thead.innerHTML = '<tr>' + headers.map(h => `<th>${h}</th>`).join('') + '</tr>';
+
+        data.forEach(row => {
+          const fila = headers.map(h => `<td>${row[h]}</td>`).join('');
+          tbody.innerHTML += `<tr>${fila}</tr>`;
+        });
+      })
+      .catch(error => {
+        document.querySelector("tbody").innerHTML = `<tr><td colspan='100%' class='text-danger text-center'>❌ Error al cargar registros: ${error.message}</td></tr>`;
+      });
+  </script>
+</body>
+</html>

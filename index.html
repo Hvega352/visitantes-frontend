@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Visitantes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body class="bg-light p-4">
+  <div class="container">
+    <div class="text-center mb-4">
+      <img src="LogoHotel.png" alt="Logo" class="mb-3" style="max-height: 120px;">
+      <h3 class="text-success">Sistema de Registro de Visitantes</h3>
+    </div>
+
+    <div class="bg-white p-4 rounded shadow">
+      <form method="POST" action="https://TUBACKEND.render.com/backend.php">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label>Nombre:</label>
+            <input name="nombre" required class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label>Documento:</label>
+            <input name="documento" required class="form-control">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label>Tipo:</label>
+            <select name="tipo" class="form-select" required>
+              <option>Visitante</option>
+              <option>Proveedor</option>
+              <option>Contratista</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label>Empresa:</label>
+            <input name="empresa" class="form-control">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label>Teléfono:</label>
+            <input name="telefono" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label>Correo:</label>
+            <input name="correo" class="form-control">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label>Fecha ingreso:</label>
+            <input type="date" name="fechaIngreso" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label>Hora ingreso:</label>
+            <input type="time" name="horaIngreso" class="form-control" required>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label>Fecha salida:</label>
+            <input type="date" name="fechaSalida" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label>Hora salida:</label>
+            <input type="time" name="horaSalida" class="form-control">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label>Destino:</label>
+            <select name="destino" class="form-select" required>
+              <option>Talento Humano</option>
+              <option>Compras</option>
+              <option>Seguridad</option>
+              <option>Costos</option>
+              <option>Cocina</option>
+              <option>Oficina del Maitre</option>
+              <option>Steward</option>
+              <option>Calidad</option>
+              <option>Lavandería</option>
+              <option>Almacén</option>
+              <option>Mantenimiento</option>
+              <option>Ama de llaves</option>
+              <option>Restaurante La Macuira</option>
+              <option>Bar</option>
+              <option>Recepción</option>
+              <option>Contabilidad</option>
+              <option>Tecnología</option>
+              <option>Comercial</option>
+              <option>Mercadeo</option>
+              <option>Gerencia</option>
+              <option>Reservas</option>
+              <option>Oficina de A&B</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label>Autoriza:</label>
+            <input name="autoriza" class="form-control">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label>Observaciones:</label>
+          <textarea name="observaciones" class="form-control" rows="2"></textarea>
+        </div>
+
+        <button class="btn btn-success w-100">Registrar</button>
+      </form>
+
+      <div class="text-center mt-3">
+        <a href="ver-registros.html" class="btn btn-outline-primary">Ver registros</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
